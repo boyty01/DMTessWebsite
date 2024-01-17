@@ -1,0 +1,56 @@
+.navigation-container {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color:rgba(20,20,20,0.5);
+    height:50px;
+    justify-content: space-between;
+    border-bottom:solid 1px white;
+
+}
+
+.navigation-links-container {
+    display:flex;
+    flex-direction: row;
+    gap: 5%;
+    margin-left:5%;
+    height:auto;
+    flex:1;
+    font-family:"Poppins";
+    font-weight:300;
+    text-transform: uppercase;
+    color:white;
+}
+
+.brand-logo {
+    background-image: url("media/DMT-logotype-white.png");
+    background-repeat:no-repeat;
+    background-size: 213px 23px;
+    background-position: 0 15px;
+    height:50px;
+    width:213px;
+    margin-left:1%;
+}
+
+.navigation-link-item {
+    display: inline-block;
+    list-style-type: none;
+    cursor:pointer;
+    gap: 5px;
+}
+
+.link-dropdown, .link-dropdown:visited, .link-dropdown:active {
+    text-decoration: none;
+    color:rgb(80,80,80);
+    font-weight: 400;
+}
+
+.navigation-dropdown {
+    display:block;
+    background-color: rgba(50,50,50,1);    
+}
+
+.hidden-menu {
+    display:none;
+}
+@media only screen and (max-width: 800px) {}

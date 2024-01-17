@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100&display=swap');
+@import url('https://fonts.cdnfonts.com/css/playfair-display');
+
+.home-container {
+    height:100vh;
+    color:white;    
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-one-container {
+    position:fixed;
+    z-index: -1;
+}
+
+.section-one-inner {
+    display:flex;
+    flex-direction: column;
+    padding-top:5%;
+    width:80%;
+    margin-left:10%;
+    align-content: center;
+}
+
+.section-one-overlay-container {    
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+    width:100%;
+    justify-content: space-between;
+}
+
+.section-one-overlay-inner {
+    display:flex;
+    flex-direction: column;
+    padding-top:10%;
+    min-width:0;
+    width:fit-content;
+    margin-left:10%;
+    justify-content: left;
+}
+
+.section-one-title {
+    color:white;
+    font-family: "Poppins";
+    font-weight:200;
+    text-align:left;
+    padding-left:2%;
+    font-size:1em;
+}
+
+.section-one-banner-container {
+    width: 60%;
+    height: auto;
+    display:flex;
+    justify-content: left;
+    min-width: 0;
+    text-align:left;
+}
+
+.section-one-banner {
+    flex-shrink:1;
+    width:100%;
+    height:auto;
+}
+
+
+.section-two-container {
+    border-top: solid 1px rgb(100,100,100);
+    border-bottom:solid 1px rgb(100,100,100);
+    background:rgba(0,0,0,0.5);
+}
+
+
+.section-two-inner {
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    padding-top:2.5%;
+    padding-bottom:2.5%;
+    width:80%;
+    margin-left:10%;
+}
+
+.section-two-title {
+    font-family: "Poppins";
+    font-weight:600;
+    color:rgb(180,180,180);
+    text-transform: uppercase;
+    text-align:left;
+    font-size:2em;
+}
+
+.section-two-body {
+    margin-top:2%;
+    font-size:1em;
+    text-align:left;
+}
+
+.section-three-container {
+    height:100vh;
+    background:none;
+}
+
