@@ -2,6 +2,7 @@ import styles from 'styles/Home.module.css';
 import { Link } from 'react-router-dom';
 import wobVideo from "media/wob_trailer_env.mp4";
 import wobBanner from 'media/Wob-banner.gif';
+import availableSteam from 'media/available_on_steam.png';
 
 export default function Home() {
 
@@ -9,8 +10,8 @@ export default function Home() {
 
         <div className={styles["home-container"]}>
             <div className={styles["section-one-container"]}>
-                <video height="100%" autoPlay={true} muted={true} loop={true}>
-                    <source src={wobVideo} type="video/mp4" />
+                <video className={styles["video-settings"]} autoPlay={true} muted={true} loop={true}>
+                    <source src={wobVideo} type="video/mp4"/>
                 </video>
             </div>
 
@@ -20,6 +21,11 @@ export default function Home() {
                     <Link className={styles["section-one-banner-container"]} to="/warofbeing">
                         <img className={styles["section-one-banner"]} src={wobBanner} />
                     </Link>
+                    <div className={styles["steam-link-container"]}>
+                        <a target='_blank' rel='noopener noreferrer' href="https://store.steampowered.com/app/2475790/War_Of_Being/">
+                            <img className={styles["steam-link-image"]} src={availableSteam} />
+                        </a>
+                    </div>
                 </div>
                 <div className={styles["section-two-container"]}>
                     <div className={styles["section-two-inner"]}>

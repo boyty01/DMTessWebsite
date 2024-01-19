@@ -1,0 +1,82 @@
+@import url('https://fonts.cdnfonts.com/css/abolition-test');
+@import url('https://fonts.cdnfonts.com/css/alphacentauri');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+.main-container {    
+    min-height:100vh;
+}
+
+.background-static {
+    position:fixed;
+
+    background-image: url("media/Tess-wob-logo.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50%;
+    background-color:rgb(20,20,20); 
+    background-blend-mode:soft-light;
+    height:100vh;
+    width:100%;
+    z-index: -1;
+}
+
+.main-container-inner {
+    padding-top:100px;
+    display:flex;
+    width:80%;
+    margin-left:10%;
+}
+
+.game-synopsis-container {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.game-title {
+    font-family:"Poppins";
+    color: rgb(150,150,150);
+    font-weight:600;
+    font-size:3em;
+}
+
+.category-image {
+    min-width:0;
+    width:60%;
+    height:auto;
+    align-self:center;
+    flex:1;
+}
+
+.synopsis-body {
+    color:rgb(200,200,200);
+    font-family:"Poppins";
+    font-weight:200;
+    font-size:2empx;
+    text-align:left;
+}
+
+.info-header {
+    font-weight:500;
+}
+
+.inline-bold {
+    font-weight:500;
+}
+
+.text-blue {
+    color:rgb(62, 247, 253);
+}
+
+@media only screen and (max-width:800px) {
+    .background-static {
+        position:fixed;    
+        background-image: url("media/Tess-wob-logo.png");
+        background-size:cover;
+        background-color:rgb(20,20,20); 
+        background-blend-mode:soft-light;
+        height:100vh;
+        width:100%;
+        z-index: -1;
+    }
+}

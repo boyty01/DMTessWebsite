@@ -4,11 +4,12 @@
 .home-container {
     height:100vh;
     color:white;    
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;    
 }
 
 .section-one-container {
     position:fixed;
+    width:100%;
     z-index: -1;
 }
 
@@ -39,12 +40,23 @@
     justify-content: left;
 }
 
+.steam-link-container {
+    align-self:left;
+    text-align:left;
+}
+
+.steam-link-image {
+    min-width:0;
+    width:120px;
+    padding-left:0px;
+}
+
 .section-one-title {
     color:white;
     font-family: "Poppins";
     font-weight:200;
     text-align:left;
-    padding-left:2%;
+    padding-left:0%;
     font-size:1em;
 }
 
@@ -87,17 +99,75 @@
     color:rgb(180,180,180);
     text-transform: uppercase;
     text-align:left;
-    font-size:2em;
+    font-size:1em;
 }
 
 .section-two-body {
-    margin-top:2%;
+    margin-top:1%;
     font-size:1em;
+    font-weight:200;
     text-align:left;
 }
 
-.section-three-container {
-    height:100vh;
-    background:none;
+.video-settings {
+    height:100%;
+    width:100%;
 }
 
+
+
+@media screen and (max-width: 800px) {
+    .home-container {
+        height:auto;
+    }
+
+    .section-one-overlay-container {
+        padding-top:100px;
+        height:70vh;
+        width:100%;
+        margin-left:0;
+    }
+
+    .section-one-overlay-inner {
+        width:100%;
+        justify-content: center;       
+        margin-left:0; 
+    }
+
+    .section-two-body {
+        font-size:11px;
+    }
+
+    .section-one-title {
+        text-align:center;
+    }
+
+    .section-one-banner-container {
+        width:100%;
+        justify-content:center;
+        width:auto;
+    }
+
+    
+    .section-one-banner {
+        width:80%;
+        height:auto;
+    }
+
+    .steam-link-container {
+        width:80%;
+        text-align:left;
+        margin-left:15%;
+    }
+    
+    .steam-link-image {
+        min-width:0;
+        width:90px;
+    }
+
+
+    .video-settings {
+        height:100vh;
+        width:auto;
+    }
+}
