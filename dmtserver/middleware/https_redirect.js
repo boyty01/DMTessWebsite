@@ -5,7 +5,7 @@ router.use((req, res, next) => {
     if(!req.secure && process.env.NODE_ENV !== "development") {
         return res.redirect(`https://${req.headers.host}${req.url}`);        
     }
-    
+
     return next();
 })
 

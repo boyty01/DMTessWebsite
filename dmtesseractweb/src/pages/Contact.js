@@ -13,7 +13,7 @@ export default function Contact(props) {
                     Email:
                     <br/>
                     DMTesseracT@gmail.com
-                    <p/>
+                    <p/> 
                     Address:
                     <br/>
                     83-89 Phoenix Street

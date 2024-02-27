@@ -4,7 +4,7 @@
 .background-static {
     position:fixed;
     background-image:url("media/Tess-wob-logo.png");
-    background-size:100%;
+    background-size:cover;
     background-repeat: no-repeat;
     background-color:rgb(20,20,20);
     background-blend-mode: soft-light;
@@ -66,4 +66,20 @@
 
 .team-info-body {
     text-align:left;
+}
+
+@media screen and (max-width:800px) {
+
+    .background-static {
+        position:fixed;
+        background-image:url("media/Tess-wob-logo.png");
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position:50% 0%;
+        background-color:rgb(20,20,20);
+        background-blend-mode: soft-light;
+        width:100%;
+        height:100vh;
+        z-index: -1;
+    }
 }
