@@ -1,5 +1,7 @@
 /**
  * Creates the schema structure specified in ./Schema.json. Should be run when installing the backend onto a new server. 
+ * Designed as an ES6 module, but currently expects to be run directly from the command line. For integration as a module, remove the last line
+ * that invokes runSetup() and invoke it from your outer as required.
  */
 
 import { } from 'dotenv/config';
@@ -75,4 +77,5 @@ async function createTables() {
             console.log(`created table ${table.tableName}`);
         };        
 }
+
 runSetup();

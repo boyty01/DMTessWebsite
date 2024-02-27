@@ -19,6 +19,7 @@ export class BugReport {
     #status;
     static #constructKey = ConstructorKeys.BugReport;
 
+
     constructor(constructKey, creator, reportBody, platform, reportTransform, submissionDate = null, clientVersion = null, status = null, guid = null) {
         if (constructKey !== BugReport.#constructKey) {
             throw new Error(`Bad access to BugReport constructor. Instantiation of BugReports must be done using the appropriate static function.`);
@@ -34,6 +35,7 @@ export class BugReport {
         this.#status = status;
     }
 
+
     /**
      * Create a new record and return it.
      * @param {string} creator 
@@ -48,11 +50,12 @@ export class BugReport {
         return record;
     }
 
+
     /**
      * @async
      * Fetch the row associated with the specified key as a BugReport object.
      * @param {*} guid 
-     * @returns {BugReport}
+     * @returns {Promise}
      */
     static async fetchRecord(guid) {
 
@@ -71,9 +74,29 @@ export class BugReport {
         }
     }
 
+
     /**
+     * Get all records submitted by the specified creator.
+     * @param {int} userId 
+     * @returns 
+     */
+    static async getRecordsByCreator(username) {
+        var conn = await pool.getConnection();
+        var results = await conn.execute(`SELECT * FROM ${tableName} WHERE creator = ?`,[username]);
+
+        var resultsAsObj = [];
+        results.forEach(record => {
+            resultsAsObj.push(new BugReport(BugReport.#constructKey, record.creator, record.report_body, record.platform, record.report_transform, record.guid));
+        });
+
+        return resultsAsObj;
+    }
+
+
+    /**
+     * @async @function
      * Get all rows from the bug report table.
-     * @returns {array} array of BugReport objects
+     * @returns {Promise} array of BugReport objects
      */
     static async fetchAll() {
         try {
@@ -93,6 +116,31 @@ export class BugReport {
         }
     }
 
+
+    /**
+     * Paged version of fetchAll, with offset. Should be used in most cases for performance. 
+     * @param {int} offset 
+     * @param {int} limit 
+     * @returns {Promise<array>} array of BugReport objects.
+     */
+    static async fetchPaged(offset, limit) {
+        try {
+            var conn = await pool.getConnection();
+            var results = await conn.execute(`
+            SELECT * FROM ${tableName}
+            LIMIT ? OFFSET ?`,[limit, offset]);
+            
+            var resultObjArr = [];
+            results.forEach(record => {
+                resultObjArr.push(new BugReport(BugReport.#constructKey, record.creator, record.report_body, record.platform, record.report_transform, record.guid))
+            })
+        }
+        catch(e) {
+            Logger.log("database", logVerbosity.medium, e);
+            return [];
+        }
+    }
+
     static async deleteRecordById(guid) {
         try {
             var numDeleted = await pool.execute(`
@@ -104,6 +152,7 @@ export class BugReport {
             throw new Error(e);
         }
     }
+
 
     /**
      * Save changes to this record to the database.
@@ -133,6 +182,7 @@ export class BugReport {
         }
     }
 
+
     /** Get a copy of all attributes
      * @returns {object} 
      */
@@ -149,30 +199,36 @@ export class BugReport {
         }
     }
 
+
     /**Set creator field */
     setCreator(newCreator) {
         this.#creator = newCreator;
     }
+
 
     /** Set report body field  */
     setReportBody(newBody) {
         this.#reportBody = newBody;
     }
 
+
     /**set platform field */
     setPlatform(newPlatform) {
         this.#platform = newPlatform;
     }
+
 
     /**set client version field */
     setclientVersion(newVersion) {
         this.#clientVersion = newVersion;
     }
 
+
     /** set game transform field.  */
     setReportGameTransform(newTransform) {
         this.#reportGameTransform = newTransform;
     }
+
 
     /**set report status field */
     setStatus(newStatus) {

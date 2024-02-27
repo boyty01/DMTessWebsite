@@ -11,7 +11,7 @@
                 },
                 {
                     "name": "username",
-                    "type": "VARCHAR(255)",
+                    "type": "VARCHAR(50)",
                     "constraints": "UNIQUE"
                 },
                 {
@@ -42,8 +42,8 @@
                 },
                 {
                     "name": "creator",
-                    "type": "INT",
-                    "constraints": "UNSIGNED"
+                    "type": "VARCHAR(50)",
+                    "constraints": ""
                 },
                 {
                     "name": "report_body",
@@ -76,7 +76,54 @@
                     "constraints": ""
                 }
             ],
-            "constraints": "FOREIGN KEY (creator) REFERENCES user(userId)"
+            "constraints": "FOREIGN KEY (creator) REFERENCES user(username)"
+        },
+        {
+            "tableName":"report_comment",
+            "fields": [
+                {
+                    "name":"id",
+                    "type":"VARCHAR(36)",
+                    "constraints":"PRIMARY KEY"
+                },
+                {
+                    "name":"report_id",
+                    "type":"VARCHAR(36)",
+                    "constraints":""
+                },
+                {
+                    "name":"author",
+                    "type":"VARCHAR(50)",
+                    "constraints":""
+                },
+                {
+                    "name":"comment",
+                    "type":"LONGTEXT",
+                    "constraints":"NOT NULL"
+                },
+                {
+                    "name":"submission_date",
+                    "type":"TIMESTAMP",
+                    "constraints": "DEFAULT CURRENT_TIMESTAMP"
+                }
+            ],
+            "constraints":"FOREIGN KEY (author) REFERENCES user(username)"
+        },
+        {
+            "tableName":"report_like",
+            "fields": [
+                {
+                    "name":"reportGuid",
+                    "type":"VARCHAR(36)",
+                    "constraints":""
+                },
+                {
+                    "name":"username",
+                    "type":"VARCHAR(50)",
+                    "constraints":""
+                }
+            ],
+            "constraints":"PRIMARY KEY(reportGuid, username), FOREIGN KEY (username) REFERENCES user(username)"
         }
     ]
 }

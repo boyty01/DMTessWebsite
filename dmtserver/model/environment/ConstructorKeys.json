@@ -1,4 +1,5 @@
 {
     "BugReport":"*",
-    "User":"*"
+    "User":"*",
+    "bugReportComment":"*"
 }
