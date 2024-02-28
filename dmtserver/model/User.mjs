@@ -105,7 +105,7 @@ export default class User {
 
         var valid = await bcrypt.compare(password, userObj.#hash);
 
-        return valid;
+        return valid; 
     }
 
 
