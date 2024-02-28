@@ -21,7 +21,8 @@ app.use(express.json());
 // read SSL credentials
 var sslKey = fs.readFileSync(process.env.SSL_PRIVATE_KEY_PATH, 'utf8');
 var sslCert = fs.readFileSync(process.env.SSL_CERTIFICATE_PATH, 'utf8');
-var credentials = {key: sslKey, cert: sslCert};
+var caIntermediate = fs.readFileSync(process.env.SSL_INTERMEDIATE_PATH, 'utf8');
+var credentials = {key: sslKey, cert: sslCert, ca: caIntermediate};
 
 var connectionOptions =
 {
